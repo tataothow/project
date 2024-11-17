@@ -6,7 +6,7 @@ on:
   push:
     branches: [docYam]
   pull_request:
-    branches: [DocYam]
+    branches: [docYam]
 
 jobs:
   # TODO: Define a job for building and testing the frontend

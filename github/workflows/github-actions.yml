@@ -4,9 +4,9 @@ name: Frontend/Backend CI/CD Pipline
 # TODO: Define triggers for the workflow
 on:
   push:
-    branches: [main]
+    branches: [docYam]
   pull_request:
-    branches: [main]
+    branches: [DocYam]
 
 jobs:
   # TODO: Define a job for building and testing the frontend

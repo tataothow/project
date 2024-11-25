@@ -10,28 +10,28 @@ on:
 
 jobs:
   # TODO: Define a job for building and testing the frontend
-  # frontend:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #      # TODO: Checkout code
-  #     - uses: actions/checkout@v2
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+       # TODO: Checkout code
+      - uses: actions/checkout@v2
        
-  #     # TODO: Setup Node.js
-  #     - name: Set up Node.js
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 16
+      # TODO: Setup Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
       
-  #     # TODO: Install dependencies
-  #     - name: Install dependencies
-  #       run: npm install
-  #     # TODO: Run tests
-  #     - name: Run tests
-  #       run: npm run test
+      # TODO: Install dependencies
+      - name: Install dependencies
+        run: npm install
+      # TODO: Run tests
+      - name: Run tests
+        run: npm run test
         
-  #     # TODO: Build the React app
-  #     - name: Build the React App
-  #       run: npm run build
+      # TODO: Build the React app
+      - name: Build the React App
+        run: npm run build
 
   # TODO: Define a job for building and testing the backend
   backend:
@@ -53,11 +53,11 @@ jobs:
           pip install -r requirements.txt  # Install project dependencies
 
   # TODO: Define a job for building and pushing Docker images
-  docker:
+  # docker:
     # Run this job only when 'frontend' & 'backend' stages are sucessfully completed
-    needs:
-    runs-on: ubuntu-latest
-    steps:
+    # needs:
+    # runs-on: ubuntu-latest
+    # steps:
       # TODO: Checkout code
       # TODO: Setup Docker
       # TODO: Build frontend Docker image
@@ -65,8 +65,8 @@ jobs:
       # TODO: Push images to Docker Hub (if on main branch)
 
   # OPTIONAL: Define a deployment job (if applicable)
-  deploy:
-    needs: docker
-    runs-on: ubuntu-latest
-    steps:
+  # deploy:
+  #   needs: docker
+  #   runs-on: ubuntu-latest
+    # steps:
       # TODO: Add deployment steps

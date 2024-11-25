@@ -30,7 +30,7 @@ jobs:
       # TODO: Run tests
       - name: Run tests
         working-directory: ./frontend
-        run: npm run test
+        run: npm run test -- --watchAll=false
         
       # TODO: Build the React app
       - name: Build the React App

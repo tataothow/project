@@ -13,11 +13,25 @@ jobs:
   frontend:
     runs-on: ubuntu-latest
     steps:
-      # TODO: Checkout code
+       # TODO: Checkout code
+      - uses: actions/checkout@v2
+       
       # TODO: Setup Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      
       # TODO: Install dependencies
+      - name: Install dependencies
+        run: npm install
       # TODO: Run tests
+      - name: Run tests
+        run: npm run test
+        
       # TODO: Build the React app
+      - name: Build the React App
+        run: npm run build
 
   # TODO: Define a job for building and testing the backend
   backend:

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
+const axios = require('axios');
+
 import './App.css'; 
 /*
 App: Calculator application with basic arithmetic operations and few advanced operations like logarithms and square roots.

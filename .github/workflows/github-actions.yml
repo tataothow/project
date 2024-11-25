@@ -10,32 +10,32 @@ on:
 
 jobs:
   # TODO: Define a job for building and testing the frontend
-  frontend:
-    runs-on: ubuntu-latest
-    steps:
-       # TODO: Checkout code
-      - uses: actions/checkout@v2
+  # frontend:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #      # TODO: Checkout code
+  #     - uses: actions/checkout@v2
        
-      # TODO: Setup Node.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
+  #     # TODO: Setup Node.js
+  #     - name: Set up Node.js
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16
       
-      # TODO: Install dependencies
-      - name: Install dependencies
-        working-directory: ./frontend
-        run: npm install axios
+  #     # TODO: Install dependencies
+  #     - name: Install dependencies
+  #       working-directory: ./frontend
+  #       run: npm install axios
 
         
-      # TODO: Run tests
-      - name: Run tests
-        working-directory: ./frontend
-        run: npm run test -- --detectOpenHandles
+  #     # TODO: Run tests
+  #     - name: Run tests
+  #       working-directory: ./frontend
+  #       run: npm run test -- --detectOpenHandles
         
-      # TODO: Build the React app
-      - name: Build the React App
-        run: npm run build
+  #     # TODO: Build the React app
+  #     - name: Build the React App
+  #       run: npm run build
 
   # TODO: Define a job for building and testing the backend
   backend:
@@ -57,16 +57,31 @@ jobs:
           pip install -r ./backend/requirements.txt  # Install project dependencies
 
   # TODO: Define a job for building and pushing Docker images
-  # docker:
+  docker:
     # Run this job only when 'frontend' & 'backend' stages are sucessfully completed
-    # needs:
-    # runs-on: ubuntu-latest
-    # steps:
+    needs: [backend]
+    runs-on: ubuntu-latest
+    steps:
       # TODO: Checkout code
+      - uses: actions/checkout@v2
       # TODO: Setup Docker
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v2
+      - name: Set up Docker Hub credentials
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
       # TODO: Build frontend Docker image
       # TODO: Build backend Docker image
+      - name: Build backend Docker image
+        run: |
+          docker build -t tataothow101/backend:${{ github.sha }} ./backend
       # TODO: Push images to Docker Hub (if on main branch)
+      - name: Push backend Docker image
+        if: github.ref == 'refs/heads/main'
+        run: |
+          docker push tataothow101/backend:${{ github.sha }}
 
   # OPTIONAL: Define a deployment job (if applicable)
   # deploy:

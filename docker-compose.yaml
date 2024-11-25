@@ -5,7 +5,7 @@ version: "3"
 services:
   frontend:
     # Specify the build context for the frontend
-    build:
+    build:  
     # Map the host port to the container port
     ports:
     # Specify dependencies (if applicable)

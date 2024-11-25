@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-// import axios from 'axios';
-const axios = require('axios');
+import axios from 'axios';
 
 import './App.css'; 
 /*

@@ -25,7 +25,8 @@ jobs:
       # TODO: Install dependencies
       - name: Install dependencies
         working-directory: ./frontend
-        run: npm install
+        run: npm install --save-dev @babel/plugin-proposal-private-property-in-object
+
         
       # TODO: Run tests
       - name: Run tests

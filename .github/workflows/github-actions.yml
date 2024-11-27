@@ -77,12 +77,12 @@ jobs:
       
       - name: Build frontend Docker image
         run: |
-            docker build  -t tataothow101/frontend:${{ github.sha }} ./frontend
+          docker build  -t tataothow101/frontend:${{ github.sha }} ./frontend
       # TODO: Push images to Docker Hub (if on main branch)
       - name: Push frontend Docker image
         if: github.ref == 'refs/heads/main'
         run: |
-         docker push tataothow101/frontend:${{ github.sha }}
+          docker push tataothow101/frontend:${{ github.sha }}
      
       
 

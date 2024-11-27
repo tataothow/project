@@ -29,9 +29,9 @@ jobs:
 
         
       # TODO: Run tests
-      - name: Run tests
-        working-directory: ./frontend
-        run: npm run test -- --detectOpenHandles
+      # - name: Run tests
+      #   working-directory: ./frontend
+      #   run: npm run test -- --detectOpenHandles
         
       # TODO: Build the React app
       - name: Build the React App

@@ -2,7 +2,7 @@
 
 #### Complete Project Instructions: [DevOps Foundations Course/Project](https://github.com/shiftkey-labs/DevOps-Foundations-Course/tree/master/Project)
 
-#### Submission by - **<Tata> <Abule Othow>**
+#### Submission by - Tata Abule Othow 
 
 ### Project Overview
 

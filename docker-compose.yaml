@@ -5,7 +5,7 @@ version: "3"
 services:
   frontend:
     # Specify the build context for the frontend
-    build: .
+    build: ./frontend
     # Map the host port to the container port
     ports:
      - "3000:3000"
@@ -25,7 +25,7 @@ services:
 
   backend:
     # Specify the build context for the backend
-    build: .
+    build: ./backend
     # Map the host port to the container port
     ports:
       - "6000:6000"

@@ -21,8 +21,11 @@ Finally, a GitHub Actions YAML file is used to automate the build, test, and dep
 - **Which files are you implmenting? and why?:**
 
 Frontend Dockerfile: create instructions to build a Docker image for the frontend service,
+
 Backend Dockerfile: create instructions to build a Docker image for the backend service.
+
 docker compose yaml file: Defines the services (frontend and backend) and their configurations for a multi-container Docker application.
+
 github yaml file: Defines the CI/CD pipeline for automating the build, test, and deployment process.
 
 <!-- NOTE: It is not compulsory to include detailed explanations, writing succint concise points would also sufice. Make sure maintain readability and clarity. -->
@@ -42,7 +45,7 @@ github yaml file: Defines the CI/CD pipeline for automating the build, test, and
   - Here please explain the `Dockerfile` created for the Python Backend API.
   - This can be a simple explanation which serves as a reference guide, or revision to you when read back the readme in future.
 
-This Dockerfile is used to build a Docker image containing the Python backend application and its dependencies, the base image used python 3.9-slim-buster
+This Dockerfile is used to build a Docker image containing the Python backend application and its dependencies, the base image used python 3.9-slim.
 
 <!-- NOTE: It is not compulsory to include detailed explanations, writing succint concise points would also sufice. Make sure maintain readability and clarity. -->
 
@@ -66,18 +69,17 @@ Dockerfile used to build a Docker image containing the React frontend applicatio
 
 **Use this section to explain how your services interact and are configured within `docker-compose.yml`.**
 
-Services:
-Example frontend and backend represent a service container with its own image, build, and port.
+Services: Example frontend and backend represent a service container with its own image, build, and port.
 
 frontend: This service represents the frontend application. It's built from the local . directory using the specified Dockerfile. Port 3000 on the host machine is mapped to port 3000 inside the container, making the frontend accessible at localhost:3000.
 
 backend: This service represents the backend application. It's also built from the local . directory using the specified Dockerfile. Port 6000 on the host machine is mapped to the corresponding port inside the container, making the backend accessible at localhost:6000.
 
-network -I am using the default (bridge) network, as I didn't specify a custom one. This means the default network allows services like the frontend and backend to communicate with each other within Docker compose environment.
+network - I am using the default (bridge) network, as I didn't specify a custom one. This means the default network allows services like the frontend and backend to communicate with each other within Docker compose environment.
 
-volumes - i did't define volumes in my Docker compose which is away to store data genereated by container, If I need to store data persistently, I can add volume definitions to services.
+volumes - I did't define volumes in my Docker compose which is away to store data genereated by container, If I need to store data persistently, I can add volume definitions to services.
 
-evnironment variable - I didn't define any evnironment variable, which can be used to configure services without modifying the container image. They can be useful for setting sensitive information for example my Docker Hub credentials. which I applied evnironment variable on to access my Docker account.
+Environment Variables - I didn't define any environment variable, which can be used to configure services without modifying the container image. They can be useful for setting sensitive information for example my Docker Hub credentials. which I applied environment variable on to access my Docker account.
 
 <!-- NOTE: It is not compulsory to include detailed explanations, writing succint concise points would also sufice. Make sure maintain readability and clarity. -->
 
@@ -91,14 +93,17 @@ evnironment variable - I didn't define any evnironment variable, which can be us
 
 **Use this section to document your automated build and deployment process.**
 
-what triggers the pipline is the push and pull_request to my main branch, this makes sure that code changes is reflected
-in the CI/CD,
+what triggers the pipline is the push and pull_request to my main branch, this makes sure that the code changes is reflected
+in the CI/CD.
+
 stages:
-build - the frontend Builds the React frontend application into a production-ready bundle,this goes for the backend builds the python backend application into a Docker image.
-test - runs test for backend, (I didn't do it for frontend)
-deploy - Pushes the Docker images to a container registry (docker pull tataothow101/backend) (docker pull tataothow101/frontend)
+Build - the frontend Builds the React frontend application into a production-ready bundle,this goes for the backend builds the python backend application into a Docker image.
+
+Test - runs test for backend, (I didn't do it for frontend)
+Deploy - Pushes the Docker images to a container registry (docker pull tataothow101/backend) (docker pull tataothow101/frontend)
 
 Dockerfile: Each service (frontend and backend) has its own Dockerfile, which defines the environment and dependencies required to build the image. Docker build used to build the Docker images based on the Dockerfiles. docker push command is used to push the built images to a container registry.
+
 The CI/CD pipeline automates the process of building, testing, and deploying the Docker images. It triggers the build and push steps whenever changes are pushed to the repository.
 
 <!-- NOTE: It is not compulsory to include detailed explanations, writing succint concise points would also sufice. Make sure maintain readability and clarity. -->
@@ -123,7 +128,7 @@ The CI/CD pipeline automates the process of building, testing, and deploying the
 
 - List any assumptions you made while creating the Dockerfiles, `docker-compose.yml`, or CI/CD pipeline.
 
-I assumed that you would need to explicitly define a network in your docker-compose.yml file to enable communication between the frontend and backend services. However, it seems that the default Docker Compose network was sufficient.
+I assumed that I would need to explicitly define a network in  docker-compose.yml file to enable communication between the frontend and backend services. However, it seems that the default Docker Compose network was sufficient.
 
 <!-- NOTE: It is not compulsory to include detailed explanations, writing succint concise points would also sufice. Make sure maintain readability and clarity. -->
 
